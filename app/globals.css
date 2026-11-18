@@ -1,26 +1,219 @@
-@import "tailwindcss";
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, p, fieldset {
+  margin: 0;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+}
+
+input, select, button {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #142822;
+  background: #f0f5f2;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.quote-shell {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top right, #dceee4, transparent 58%), #f0f5f2;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.quote-header {
+  max-width: 76rem;
+  margin: auto;
+  padding: 1.25rem clamp(1rem, 5vw, 3rem);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.quote-brand {
+  color: #174f3c;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.quote-main {
+  display: grid;
+  justify-items: center;
+  padding: clamp(1rem, 6vh, 5rem) 1rem 3rem;
+}
+
+.quote-card {
+  width: min(100%, 33rem);
+  padding: clamp(1.25rem, 5vw, 2.5rem);
+  border: 1px solid #d3e2d9;
+  border-radius: 1.25rem;
+  background: white;
+  box-shadow: 0 16px 44px #174f3c12;
+}
+
+.quote-card h1 {
+  font-size: clamp(1.85rem, 6vw, 2.65rem);
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.quote-intro {
+  margin-top: 0.75rem;
+  color: #456158;
+}
+
+.quote-progress {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.65rem;
+  color: #315c4d;
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.quote-progress progress {
+  width: 100%;
+  height: 0.45rem;
+  overflow: hidden;
+  appearance: none;
+  border-radius: 99px;
+  background: #e2ede7;
+  color: #277658;
+}
+
+.quote-progress progress::-webkit-progress-bar { background: #e2ede7; }
+.quote-progress progress::-webkit-progress-value { background: #277658; }
+.quote-progress progress::-moz-progress-bar { background: #277658; }
+
+.quote-form,
+.quote-fields,
+.quote-options {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.quote-form {
+  margin-top: 1.5rem;
+}
+
+.quote-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.4rem;
+}
+
+.quote-field label,
+.quote-option {
+  font-weight: 650;
+}
+
+.quote-field input,
+.quote-field select,
+.quote-option {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #809b8f;
+  border-radius: 0.65rem;
+  background: #fff;
+}
+
+.quote-field [aria-invalid="true"] {
+  border-color: #a1262d;
+}
+
+.quote-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+}
+
+.quote-option:has(:checked) {
+  background: #eaf6ef;
+  border-color: #277658;
+}
+
+.quote-option input {
+  accent-color: #176147;
+}
+
+.quote-name {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 430px) {
+  .quote-name { grid-template-columns: 1fr 1fr; }
+}
+
+.quote-error {
+  font-size: 0.875rem;
+  color: #a1262d;
+}
+
+.quote-consent {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #456158;
+}
+
+.quote-button,
+.quote-back {
+  display: grid;
+  min-height: 3rem;
+  place-items: center;
+  padding: 0.65rem 1rem;
+  border-radius: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.quote-button {
+  color: white;
+  background: #176147;
+}
+
+.quote-button:hover:enabled,
+a.quote-button:hover {
+  background: #114b37;
+}
+
+.quote-back {
+  justify-self: start;
+  color: #174f3c;
+}
+
+.quote-back:hover:enabled {
+  background: #eaf6ef;
+}
+
+.quote-form button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.quote-return {
+  margin-top: 1.5rem;
+}
+
+.quote-shell :focus-visible {
+  outline: 3px solid #257e62;
+  outline-offset: 3px;
 }
