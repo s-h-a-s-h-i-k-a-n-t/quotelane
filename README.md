@@ -2,6 +2,15 @@
 
 QuoteLane is a mobile-first auto insurance lead funnel. The Next.js app captures affiliate attribution, offers two form lengths, and saves each accepted lead and its consent record in PostgreSQL.
 
+## Live demo
+
+- [Open QuoteLane](https://quotelane-omega.vercel.app/) to try the regular A/B assignment.
+- [Open version A](https://quotelane-omega.vercel.app/?variant=a) to try the full six-step form.
+- [Open version B](https://quotelane-omega.vercel.app/?variant=b) to try the short three-step form.
+- [Open version B with Sam Lee’s test details](https://quotelane-omega.vercel.app/?variant=b&click_id=demo123&aff_id=42&channel=email&zip=90210&insured=yes&first_name=Sam&last_name=Lee&email=sam%40example.com&phone=%2B14145550123). Expect to land on Step 3 of 3 with the contact fields filled in. Refresh to check that prefill survives, or use **Back** to inspect the skipped answers.
+
+To test lead capture, use a synthetic email and US phone number that the demo has not used in the past 24 hours. Click **Get My Quotes** and confirm that the thank-you page opens. In the browser’s Network tab, `POST /api/leads` should return HTTP `201`.
+
 ## Run locally
 
 1. Install dependencies with `npm ci`.
