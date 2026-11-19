@@ -1,6 +1,6 @@
 # QuoteLane
 
-QuoteLane is a mobile-first auto insurance lead funnel. The Next.js app captures affiliate attribution, offers two form lengths, and saves each accepted lead and its consent record in PostgreSQL. Partner delivery (Section 6) is deferred.
+QuoteLane is a mobile-first auto insurance lead funnel. The Next.js app captures affiliate attribution, offers two form lengths, and saves each accepted lead and its consent record in PostgreSQL.
 
 ## Run locally
 
