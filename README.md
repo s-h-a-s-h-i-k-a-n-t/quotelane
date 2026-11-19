@@ -27,7 +27,7 @@ For Vercel, import the repository and set `DATABASE_URL` and `SPLIT_PERCENT_B` f
 - Try `/?variant=a&zip=1234&year=%7Bsub5%7D&first_name=%5BEMAIL%5D&email=notanemail&phone=abc`. Expect the ZIP step first. The remaining invalid answers stay blank.
 - Submit synthetic details and check the thank-you page. Change the name before submitting to verify the lead stores the final name with the prefill field name. In Neon, inspect the latest rows using the query below.
 - Start a fresh form and reuse either email or phone within 24 hours, varying the other value. Expect a duplicate error. Try alternative formatting or case for the matched value. A different email and number allow another test lead. Two overlapping requests with matching contact details can create one lead.
-- Send more than ten POST attempts from the same IP within one minute. Expect HTTP 429 after ten attempts. A malformed JSON submission counts toward this limit.
+- Send three POST attempts from the same IP in a fresh clock minute. Expect HTTP 429 on the third attempt. A malformed JSON submission counts toward this limit.
 - At a split between 0 and 100, visit without a variant query, refresh, and reopen in the same browser to check the assignment. Force the other variant with a test link, then open the bare URL again to check the original assignment. With the user agent set to Googlebot, even `?variant=b` resolves to A.
 
 ```sql

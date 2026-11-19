@@ -4,7 +4,7 @@ import { normalizePhone } from "@/lib/validation";
 import { getDatabase } from "./db";
 import type { FormSession } from "./form-sessions";
 
-const maxAttempts = 10;
+const maxAttempts = 2;
 
 export async function allowLeadAttempt(ip: string): Promise<boolean> {
   const result = await getDatabase().query(
